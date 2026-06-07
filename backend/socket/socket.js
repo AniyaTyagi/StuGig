@@ -84,8 +84,14 @@ const initSocket = (server) => {
   });
 
   // Make io available to notification service
-  const notificationService = require('../services/notification.service');
-  notificationService.setIO(io);
+  try {
+    const notificationService = require('../services/notification.service');
+    if (notificationService && notificationService.setIO) {
+      notificationService.setIO(io);
+    }
+  } catch (error) {
+    console.log('⚠️  Notification service not found, continuing without it');
+  }
 
   return io;
 };
