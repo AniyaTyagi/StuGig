@@ -7,9 +7,15 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://https://stugig.onrender.com',
-        changeOrigin: true
+        target: 'https://stugig.onrender.com',
+        changeOrigin: true,
+        secure: false
       }
     }
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    chunkSizeWarningLimit: 1000
   }
 })

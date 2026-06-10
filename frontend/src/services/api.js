@@ -2,9 +2,10 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://stugig.onrender.com/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://stugig.onrender.com/api/v1',
   headers: { 'Content-Type': 'application/json' },
-  timeout: 30000
+  timeout: 30000,
+  withCredentials: false
 });
 
 // Request interceptor
@@ -28,7 +29,7 @@ api.interceptors.response.use(
     // Network error (backend not running)
     if (!error.response) {
       console.error('Network Error:', error.message);
-      toast.error('Cannot connect to server. Please ensure backend is running on port 5000.');
+      toast.error('Cannot connect to server. Please check your internet connection.');
       return Promise.reject({ 
         message: 'Network error: Cannot connect to server',
         status: 0,

@@ -6,9 +6,34 @@ const users = new Map();
 const initSocket = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: process.env.CLIENT_URL || 'http://localhost:5173',
-      credentials: true
-    }
+      origin: function (origin, callback) {
+        const allowedOrigins = [
+          "http://localhost:5173",
+          "https://stugig-frontend.vercel.app",
+          /https:\/\/stugig-frontend.*\.vercel\.app$/
+        ];
+        
+        if (!origin) return callback(null, true);
+        
+        const isAllowed = allowedOrigins.some(allowed => {
+          if (allowed instanceof RegExp) {
+            return allowed.test(origin);
+          }
+          return allowed === origin;
+        });
+        
+        if (isAllowed) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
+      credentials: true,
+      methods: ['GET', 'POST']
+    },
+    transports: ['websocket', 'polling'],
+    pingTimeout: 60000,
+    pingInterval: 25000
   });
 
   io.use((socket, next) => {

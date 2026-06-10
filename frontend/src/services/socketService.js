@@ -10,12 +10,13 @@ class SocketService {
       const token = localStorage.getItem('token');
       if (!token) return;
       
-      this.socket = io(import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://https://stugig.onrender.com', {
+      this.socket = io(import.meta.env.VITE_API_URL?.replace('/api/v1', '') || 'https://stugig.onrender.com', {
         auth: { token },
         reconnection: true,
         reconnectionDelay: 1000,
         reconnectionAttempts: 5,
-        timeout: 10000
+        timeout: 10000,
+        transports: ['websocket', 'polling']
       });
 
       this.socket.on('connect_error', (error) => {
