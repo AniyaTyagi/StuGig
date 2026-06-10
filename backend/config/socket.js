@@ -7,7 +7,7 @@ const onlineUsers = new Map();
 const initializeSocket = (server) => {
   const io = socketIO(server, {
     cors: {
-      origin: process.env.CLIENT_URL || 'http://localhost:5173',
+      origin: process.env.CLIENT_URL || 'https://stugig-frontend-aniya-tyagi-s-projects.vercel.app?_vercel_share=OCMtrh89wA33mFA7ZyJO4oYhXiL58jcO', 'http://localhost:5173',
       methods: ['GET', 'POST'],
       credentials: true
     }

@@ -261,7 +261,7 @@ npm install
 Create `.env`
 
 ```env
-VITE_API_URL=http://localhost:5000/api/v1
+VITE_API_URL=https://stugig.onrender.com/api/v1
 ```
 
 Run:

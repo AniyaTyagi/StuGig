@@ -10,7 +10,7 @@ class SocketService {
       const token = localStorage.getItem('token');
       if (!token) return;
       
-      this.socket = io(import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000', {
+      this.socket = io(import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://https://stugig.onrender.com', {
         auth: { token },
         reconnection: true,
         reconnectionDelay: 1000,

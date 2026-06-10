@@ -27,7 +27,7 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https://*"],
-      connectSrc: ["'self'", "http://localhost:5000", "ws://localhost:5000", "wss://*", "https://*"],
+      connectSrc: ["'self'", "http://https://stugig.onrender.com", "ws://https://stugig.onrender.com", "wss://*", "https://*"],
     },
   },
   crossOriginEmbedderPolicy: false,
@@ -35,7 +35,7 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: [process.env.CLIENT_URL || 'http://localhost:5173', 'http://localhost:5173'],
+  origin: [process.env.CLIENT_URL || 'http://localhost:5173', 'https://stugig-frontend-aniya-tyagi-s-projects.vercel.app?_vercel_share=OCMtrh89wA33mFA7ZyJO4oYhXiL58jcO'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']

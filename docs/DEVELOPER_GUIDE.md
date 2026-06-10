@@ -80,7 +80,7 @@ PLATFORM_COMMISSION=15
 ## Frontend (.env)
 
 ```env
-VITE_API_URL=http://localhost:5000/api/v1
+VITE_API_URL=http://https://stugig.onrender.com/api/v1
 ```
 
 ---
@@ -97,7 +97,7 @@ npm run dev
 Runs on:
 
 ```text
-http://localhost:5000
+http://https://stugig.onrender.com
 ```
 
 ## Frontend
